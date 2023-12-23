@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class App</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	button {
+ padding: 0.8em 1.8em;
+ border: 5px solid gold;
+ position: relative;
+ overflow: hidden;
+ background-color: white;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color:gold;
+}
+
+button::before {
+ content: '';
+ width: 0;
+ height: 400%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(45deg);
+ background: gold;
+ transition: 0.7s ease;
+ display: block;
+ z-index: -1;
+}
+
+button:hover::before {
+ width: 102%;
+}
+
+button:hover {
+ color: #111;
+}
+.btn{
+background:white;
+border-color:gold;
+}
+
+body{
+background-image:url("https://image.slidesdocs.com/responsive-images/background/handdrawn-style-blue-cute-education-math-lovely-powerpoint-background_a698b5341c__960_540.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+	</style>
+</head>
+<body>
+    <div class="container mt-7">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+        <h1 class="text-center" style="font-size:50px;">Welcome to the Class App</h1><br>
+        <center><p class=""><button class="btn"><a href="file:///C:/Users/user/Desktop/ENIGMA/Login2.html" style="color:black;text-decoration:none;">Login</button></p><p class=""><button class="btn"> <a href="file:///C:/Users/user/Desktop/ENIGMA/signup.html"style="color:black;text-decoration:none;">SignUp</button></p></center>
+    </div>
+	
+</body>
+</html>

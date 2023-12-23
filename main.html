@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mainpage</title>
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "-yVUuPv3MmBBRGl2Q1htc",
+            domain: "www.chatbase.co"
+        }
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="-yVUuPv3MmBBRGl2Q1htc" domain="www.chatbase.co" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #222; /* Dark background color */
+            color: #fff; /* Light text color */
+        }
+
+        .icon-bar {
+            width: 100%;
+            background-color: #111; /* Darker background color for the icon bar */
+            overflow: hidden;
+        }
+
+        .icon-bar a {
+            float: left;
+            width: 20%;
+            text-align: center;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
+
+        .icon-bar a:hover {
+            background-color: #000;
+        }
+
+        .active {
+            background-color: orange;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .active-content {
+            display: block;
+        }
+
+        .alert-container,
+        .upload-container {
+            background-color: #111; /* Dark background color for content containers */
+            color: #fff; /* Light text color for content */
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="icon-bar">
+            <a href="#" onclick="showContent('home')"><i class="fa fa-home"></i></a>
+            <a href="#" onclick="showContent('calendar')"><i class="glyphicon glyphicon-calendar"></i></a>
+            <a href="#" onclick="showContent('bell')"><i class="fa fa-bell"></i></a>
+            <a href="#" onclick="showContent('save')"><i class="glyphicon glyphicon-cloud-upload"></i></a>
+            <a href="#" onclick="showContent('user')"><i class="fa fa-user"></i></a>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div id="home-content" class="content active-content">
+        <!-- Home content goes here -->
+        <br>
+        <br>
+        <br>
+        <div class="container mt-5" style="box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);">
+            <h2 class="text-center">Welcome, user_name</h2>
+            <p class="text-center">User Type: Tutor</p>
+
+            
+            <h3 class="text-left">Your Classes</h3>
+            <select id="class_name" name="class_name" class="form-control" required>
+                           <BR>
+                            <option value=" Subject"> Subject </option>
+							<option value="Mathemeatics"> Mathemeatics </option>
+							<option value="Physics"> Physics </option>
+							<option value="English">English</option>
+							<option value="ELE">ELE</option>
+							<option value="POP">POP</option>
+							<option value="SFH">SFH</option>
+							<option value="RE">RE</option>
+							<option value="LANGUAGE">LANGUAGE</option>
+                           
+                        </select>
+            
+            <p class="text-center">View and join your classes effortlessly.</p>
+            
+<CENTER> <BUTTON CLASS="btn btn-primary"> Create Class </button </center>
+            <br>
+        </div>
+        <br>
+
+        <br>
+
+
+    </div>
+
+    <div id="calendar-content" class="content">
+        <!-- Calendar content goes here -->
+		<br><br><br>
+        <div class="container mt-8" style="box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);">
+		
+            <div class="text-center mb-4">
+                <h2>Schedule Class</h2><br>
+            </div>
+            <div class="form-container mx-auto">
+                <form method="post" action="{{ url_for('schedule_class') }}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="timetable">Upload Timetable:</label><br>
+                        <input type="file" id="timetable" name="timetable" class="form-control-file" required>
+                        <small class="form-text text-muted">Accepted formats: CSV, XLS, XLSX, PDF, DOC</small>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="bell-content" class="content">
+        <!-- Bell content goes here -->
+        <div class="container">
+            <div class="alert-container mx-auto">
+                <h2 class="mb-4">Send Alerts</h2>
+                <p class="mb-4">This route is accessible only to tutors.</p>
+                <a class="btn btn-primary" href="{{ url_for('send_alerts')}}">Send Alerts</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="save-content" class="content">
+        <!-- Save content goes here -->
+        <div class="container">
+            <div class="upload-container mx-auto">
+                <h2 class="mb-4">Upload Document</h2>
+                <form method="post" action="{{ url_for('upload_document') }}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="document_type">Document Type:</label>
+                        <select id="document_type" name="document_type" class="form-control" required>
+                            
+                            <option value="doc type" disable>Doc type</option>
+                            <option value="PPT">Presentation</option>
+                            <option value="Xlx">Excel</option>
+                            <option value="PDF">PDF</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="document">Upload Document:</label>
+                        <input type="file" id="document" name="document" class="form-control-file" required>
+                        <small class="form-text text-muted">Accepted formats: CSV, XLS, XLSX, PDF, DOC</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-content" class="content">
+        <!-- User content goes here -->
+        <div class="container mt-5" style="box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);">
+            <div class="text-center mb-4">
+                <h2>Capture Attendance</h2><br>
+            </div>
+            <div class="form-container mx-auto">
+                <form method="post" action="{{ url_for('capture_attendance') }}">
+                    <div class="form-group">
+                        <label for="class_name">Select Class:</label><br>
+                        <select id="class_name" name="class_name" class="form-control" required>
+                           <BR>
+                            <option value=" class_name"> class_name </option>
+							<option value="1st SEM"> 1st SEM </option>
+							<option value="2nd SEM"> 2nd SEM </option>
+							<option value="3rd SEM">3rd SEM</option>
+							<option value="4th SEM">4th SEM</option>
+							<option value="5th SEM">5th SEM</option>
+							<option value="6th SEM">6th SEM</option>
+							<option value="7th SEM">7th SEM</option>
+							<option value="8th SEM">8th SEM</option>
+                           
+                        </select>
+                    </div>
+					<br>
+                    <div class="form-group">
+                        <label>Students Present:</label>
+                        <BR>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="students_present" value="{{ student }}">
+                            <label class="form-check-label"> Jayashankar</label><br>
+							<input class="form-check-input" type="checkbox" name="students_present" value="{{ student }}">
+                            <label class="form-check-label"> Dhanush Reddy</label><br>
+							<input class="form-check-input" type="checkbox" name="students_present" value="{{ student }}">
+                            <label class="form-check-label"> Gagan D</label><br>
+							<input class="form-check-input" type="checkbox" name="students_present" value="{{ student }}">
+                            <label class="form-check-label"> Vikas G</label><br>
+                        </div>
+                       
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="createMeeting-content" class="content">
+        <!-- Create Meeting content goes here -->
+        <h2>Create Meeting Content</h2>
+    </div>
+
+    <div id="joinMeeting-content" class="content">
+        <!-- Join Meeting content goes here -->
+        <h2>Join Meeting Content</h2>
+    </div>
+
+    <script>
+        function showContent(contentId) {
+            // Hide all content divs
+            $('.content').removeClass('active-content');
+
+            // Show the selected content
+            $('#' + contentId + '-content').addClass('active-content');
+        }
+    </script>
+</body>
+</html>
